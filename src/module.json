@@ -1,0 +1,24 @@
+{
+  "name": "__MODULE_NAME__",
+  "title": "__MODULE_TITLE__",
+  "description": "__MODULE_DESCRIPTION__",
+  "version": "__VERSION__",
+  "author": "__AUTHOR__",
+  "authors": [],
+  "compatibility": {
+    "minimum": "__MODULE_COMPATIBILITY_MINIMUM__",
+    "verified": "__MODULE_COMPATIBILITY_VERIFIED__"
+  },
+  "license": "__LICENSE__",
+  "relationships": {
+    "systems": []
+  },
+  "esmodules": [],
+  "scripts": [],
+  "styles": [],
+  "packs": [],
+  "media": [],
+  "url": "__REPO_URL__",
+  "manifest": "__REPO_URL__/releases/download/__RELEASE__/module.json",
+  "download": "__REPO_URL__/releases/download/__RELEASE__/__MODULE_NAME_____RELEASE__.zip"
+}

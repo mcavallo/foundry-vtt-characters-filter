@@ -1,0 +1,74 @@
+<form autocomplete="off">
+  <div class="form-group">
+    <label>{{localize 'PLAYERS.PlayerAvatar'}}</label>
+    <img class="avatar" src="{{user.avatar}}" data-edit="avatar" title="{{actor.name}}" height="64" width="64" />
+  </div>
+
+  <div class="form-group">
+    <label>{{localize 'PLAYERS.PlayerColor'}}</label>
+    <div class="form-fields">
+      {{colorPicker name="color" value=user.color}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize 'PLAYERS.PlayerPronouns'}}</label>
+    <div class="form-fields">
+      <input type="text" name="pronouns" value="{{user.pronouns}}">
+    </div>
+  </div>
+
+  <div class="character-settings">
+    <div class="form-group stacked directory">
+      {{#if user.character}}
+      <h2>
+        {{localize 'PLAYERS.CharSelected'}}
+      </h2>
+      <div class="selected-character">
+        <ul id="characters" class="directory-list">
+          <li class="actor directory-item flexrow" data-actor-id="{{user.character.id}}">
+            <img class="profile actor-profile" src="{{user.character.img}}" title="{{user.character.name}}" />
+            <h3 class="document-name noborder"><a>{{user.character.name}}</a></h3>
+          </li>
+        </ul>
+        <button type="reset" name="release">
+          <i class="fas fa-ban"></i> {{localize 'PLAYERS.CharRelease'}}
+        </button>
+      </div>
+      {{else}}
+      <h2>
+        {{localize 'PLAYERS.CharSelect'}}
+      </h2>
+      {{#if filterIsVisible }}
+        <div class="character-filter">
+          <i class="fas fa-search"></i>
+          <input
+            type="text"
+            value="{{ filterValue }}"
+            placeholder="Filter characters..."
+            id="character-filter-input"
+          />
+        </div>
+        {{#if filterHasNoResults }}
+        <div class="character-filter-no-results">
+          No results for "{{ filterValue }}"
+        </div>
+        {{/if}}
+      {{/if}}
+      <ul id="characters" class="directory-list">
+        {{#each actors}}
+        <li class="actor directory-item flexrow" data-actor-id="{{this.id}}">
+          <img class="profile actor-profile" src="{{this.img}}" title="{{this.name}}" />
+          <h3 class="document-name noborder"><a>{{this.name}}</a></h3>
+        </li>
+        {{/each}}
+      </ul>
+      <input type="hidden" name="character" value="" />
+      {{/if}}
+    </div>
+  </div>
+
+  <button type="submit">
+    <i class="fas fa-save"></i> {{localize 'PLAYERS.SaveConfig'}}
+  </button>
+</form>
